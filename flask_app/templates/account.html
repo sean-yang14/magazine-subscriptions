@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account</title>
+</head>
+<body>
+  <nav>
+    <h1>Update User</h1>
+    <div>
+      <a href="/home/create">Add a Magazine</a>
+      <a href="/home">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+  <section id='user'>
+    <div>
+      <h2>Update User</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="/update_user" method='POST'>
+        <label for="first_name">First Name:</label>
+        <input type="text" name='first_name' id='first_name' value='{{user.first_name}}'>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name='last_name' id='last_name' value='{{user.last_name}}'>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value='{{user.email}}'>
+        <button>Update</button>
+      </form>
+    </div>
+
+    <div>
+      <h2>User's Magazines</h2>
+      <div>
+        {% for i in user.magazines: %}
+        <div>
+          <p>{{i.title}}</p>
+          <a href="/delete/{{user.id}}-{{i.id}}">Delete</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</body>
+</html>
