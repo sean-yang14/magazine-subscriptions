@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='output.css')}}">
   <title>{{magazine.title}}</title>
 </head>
-<body>
-  <nav>
+<body class='w-5/6 mx-auto flex flex-col'>
+  <nav class='flex justify-end items-center mt-6'>
+    <div class='flex gap-x-12 text-xl'>
       <a href="/home/create">Add Magazine</a>
       <a href="/home/account">Account</a>
-      <a href="/logout">Logout</a>
+      <a href="/logout" class='border-black border-[1px] bg-purple-700 text-white font-medium py-1 px-2 rounded-md'>Logout</a>
+    </div>
   </nav>
 
-  <h1>{{magazine.title}}</h1>
+  <h1 class='text-4xl font-bold mt-8 text-purple-700'>{{magazine.title}}</h1>
+  <h2 class='font-semibold text-2xl mt-6'>Added by {{magazine.author.first_name}} {{magazine.author.last_name}}</h2>
+  <h2 class='font-medium text-2xl mt-6'>Description:</h2>
+  <p class='text-xl mt-4 w-1/2 pl-8'>{{magazine.description}}</p>
   
-  <h2>Added by {{magazine.author.first_name}} {{magazine.author.last_name}}</h2>
-
-  <div>
-    <h2>Description:</h2>
-    <p>{{magazine.description}}</p>
-  </div>
 
 </body>
 </html>

@@ -1,0 +1,16 @@
+{
+  "name": "magazine_subscriptions_exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./flask_app/static/output.css",
+    "watch": "tailwindcss -i ./input.css -o ./flask_app/static/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.3"
+  }
+}

@@ -4,44 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='output.css')}}">
   <title>Register / Login</title>
 </head>
-<body>
-  <h1>Register</h1>  
-  <section>
-
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
+<body class='w-5/6 mx-auto flex flex-col items-center'>
+  <h1 class='text-3xl mx-auto text-center mt-8 font-bold text-purple-700'>Register / Login</h1>  
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class='mt-6'>
         {% for message in messages %}
           <p>{{message}}</p>
         {% endfor %}
-      {% endif %}
-    {% endwith %}
-
-    <div>
-      <h2>Register</h2>
-      <form action="/register_login/register" method='POST'>
-        <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" id="first_name">
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" id="last_name">
-        <label for="email">Email:</label>
-        <input type="email" name='email' id='email'>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <label for="confirm">Confirm Password:</label>
-        <input type="password" name='confirm' id='confirm'>
-        <button>Submit</button>
+      </div>
+    {% endif %}
+  {% endwith %}
+  <section class='grid grid-cols-2 w-2/3 gap-x-16 mt-6 text-xl'>
+    <div class='border-black border-[1px] rounded-xl'>
+      <h2 class='text-2xl text-center font-semibold mt-6'>Register</h2>
+      <form action="/register_login/register" method='POST' class='flex flex-col w-3/4 mx-auto gap-y-1 mt-6'>
+        <label for="first_name" class='font-medium'>First Name:</label>
+        <input type="text" name="first_name" id="first_name" class='border rounded-md px-4'>
+        <label for="last_name" class='mt-2 font-medium'>Last Name:</label>
+        <input type="text" name="last_name" id="last_name" class='border rounded-md px-4'>
+        <label for="email" class='mt-2 font-medium'>Email:</label>
+        <input type="email" name='email' id='email' class='border rounded-md px-4'>
+        <label for="password" class='mt-2 font-medium'>Password:</label>
+        <input type="password" name="password" id="password" class='border rounded-md px-4'>
+        <label for="confirm" class='mt-2 font-medium'>Confirm Password:</label>
+        <input type="password" name='confirm' id='confirm' class='border rounded-md px-4'>
+        <button class='font-semibold rounded-lg w-max py-2 px-4 mx-auto my-6 bg-orange-600 text-white'>Submit</button>
       </form>
     </div>
-    <div>
-      <h2>Log In</h2>
-      <form action="/register_login/login" method='POST'>
-        <label for="login_email">Email</label>
-        <input type="email" name='email' id='login_email'>
-        <label for="login_password">Password</label>
-        <input type="password" name="password" id="login_password">
-        <button>Log In</button>
+    <div class='border-black border-[1px] rounded-xl'>
+      <h2 class='text-2xl font-semibold text-center mt-6'>Log In</h2>
+      <form action="/register_login/login" method='POST' class='flex flex-col w-3/4 mx-auto gap-y-1 mt-6'>
+        <label for="login_email" class='mt-2'>Email:</label>
+        <input type="email" name='email' id='login_email' class='border rounded-md px-4'>
+        <label for="login_password" class='mt-2'>Password:</label>
+        <input type="password" name="password" id="login_password" class='border rounded-md px-4'>
+        <button class='font-semibold rounded-lg w-max py-2 px-4 mx-auto my-6 bg-orange-600 text-white'>Log In</button>
       </form>
     </div>
   </section>
